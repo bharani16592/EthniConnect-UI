@@ -18,8 +18,8 @@
   <a routerLink="Contact">Contact Us</a>
 
   <div class="topnav-left">
-    <a *ngIf="!loggedIn()" routerLink="Login">Log-In/Sign-Up</a>
-    <a *ngIf="loggedIn()" (click)="logOut()">Log-Out</a>
+    <a *ngIf="!loggedIn()" routerLink="Login" style="margin-right: 100px;">Log-In/Sign-Up</a>
+    <a *ngIf="loggedIn()" (click)="logOut()" style="margin-right: 100px;">Log-Out</a>
 
     <div class="search-container">
       <form action="/action_page.php">
