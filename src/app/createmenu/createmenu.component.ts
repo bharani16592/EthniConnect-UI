@@ -122,8 +122,9 @@ export class CreatemenuComponent implements OnInit {
       }
       
     }
-    alert('your menu has been added successfully')
+    
   }
+  alert('your menu has been added successfully')
   
   console.log(validFormData)
   if(validFormData.length>0){
