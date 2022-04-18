@@ -11,6 +11,7 @@ import { FetchChefsForCuisinesAndZipCodeDataService } from 'src/network/dataServ
 export class FindChefComponent implements OnInit {
   zipCode:number=0
   cuisineId:number=0
+  selectedcuisineCategory:string=""
   chefs: Array<any> = [];
  
 
@@ -24,6 +25,7 @@ export class FindChefComponent implements OnInit {
       console.log(params);
       this.zipCode = Number(params.get('zipCode')) ;
       this.cuisineId = Number(params.get('cuisineId')) ;
+      this.selectedcuisineCategory = String(params.get("selectedcuisineCategory"));
     });
    
     if(this.zipCode && this.cuisineId){

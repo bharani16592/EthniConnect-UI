@@ -117,12 +117,12 @@ export class CreatemenuComponent implements OnInit {
       if(!form.invalid){
         validFormData.push({...form.value,
           menucategories:formArr}) 
-          alert('your menu has been added successfully')
+         
          
       }
       
     }
-   
+    alert('your menu has been added successfully')
   }
   
   console.log(validFormData)

@@ -32,6 +32,7 @@ export class SelectMenuComponent implements OnInit {
   daysInAWeek=["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
   activeDay="Wednesday"
   chefId:number=0
+  selectedcuisineCategory:string=""
   isMenuEmpty = false
   selectedMenu:any=[]
   chef: any;
@@ -112,13 +113,16 @@ export class SelectMenuComponent implements OnInit {
 
     this._Activatedroute.paramMap.subscribe(params => { 
       this.chefId = Number(params.get('chefId')) ;
+      this.selectedcuisineCategory = String(params.get('selectedcuisineCategory')) ;
       this.chefService.prepareRequestWithParameters([this.chefId])
       this.chefService.queryTheServer().subscribe(data => this.chef = data)
       this._FetchMenuByChefIdDataService.prepareRequestWithParameters(this.chefId)
       this._FetchMenuByChefIdDataService.queryTheServer().subscribe({
         next:res=>{
             const data:any=res;
+
             this.chefMenuList=data.chefMenuList
+            this.chefMenuList=this.chefMenuList.filter(menu=>menu.cuisineCategory==this.selectedcuisineCategory)
             this.Breakfast=this.chefMenuList.filter(menu=>menu.week==this.activeDay && menu.menucategory=='Breakfast')
             this.Lunch=this.chefMenuList.filter(menu=>menu.week==this.activeDay && menu.menucategory=='Lunch')
             this.Dinner=this.chefMenuList.filter(menu=>menu.week==this.activeDay && menu.menucategory=='Dinner')
