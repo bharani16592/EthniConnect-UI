@@ -116,12 +116,15 @@ export class CreatemenuComponent implements OnInit {
     for (let form of abc.controls){
       if(!form.invalid){
         validFormData.push({...form.value,
-          menucategories:formArr})
+          menucategories:formArr}) 
+          alert('your menu has been added successfully')
+         
       }
-
+      
     }
-    alert('your menu has been added successfully')
+   
   }
+  
   console.log(validFormData)
   if(validFormData.length>0){
     this._AddChefMenuDataService.queryTheServer({

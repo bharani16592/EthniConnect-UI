@@ -33,8 +33,8 @@ export class ForgotpasswordComponent implements OnInit {
       
       next: resp=> 
       {
-        const data:any=resp
-        localStorage.setItem('emaiId',data.emailId)
+       /*  const data:any=resp
+        localStorage.setItem('emaiId',data.emailId); */
         this.router.navigate(['/resetpwdemailcomplete'])
     },
       error: err=>{

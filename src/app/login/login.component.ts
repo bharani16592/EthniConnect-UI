@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
     email: new FormControl('',[Validators.required, Validators.email]),
     password: new FormControl('',[Validators.required]),
   });
+  submitted: boolean=false;
 
   constructor(private _SignInDataService:SignInDataService,
     private router:Router ) { }
@@ -54,8 +55,8 @@ export class LoginComponent implements OnInit {
       } ,
       error: err=>{
         console.log(err)
-        //alert("User has not registered yet. Please signup")
-        alert(err.error.errormessage)
+        alert('Please enter the correct details')
+        //alert(err.error.errormessage)
       }
    });
   }

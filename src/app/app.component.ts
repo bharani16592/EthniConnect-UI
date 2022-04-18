@@ -20,5 +20,10 @@ export class AppComponent {
   loggedIn() {
     return localStorage.getItem('loginId');
  }
+ isChef() {
+  return localStorage.getItem('isChef')=="true";
+
+}
+
 
 }

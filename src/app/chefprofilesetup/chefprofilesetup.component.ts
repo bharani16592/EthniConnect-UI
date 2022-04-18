@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ChefProfileCreateDataService } from 'src/network/dataServices/ChefProfileCreateDataService';
 
@@ -11,20 +11,20 @@ import { ChefProfileCreateDataService } from 'src/network/dataServices/ChefProfi
 export class ChefprofilesetupComponent implements OnInit {
 
   profileForm = new FormGroup({
-    fname: new FormControl(''),
-    lname: new FormControl(''),
-    emailid: new FormControl(''),
-    chef_phone: new FormControl(''),
-    chef_street:new FormControl(''),
-    chef_city:new FormControl(''),
-    chef_state:new FormControl(''),
-    chef_description:new FormControl(''),
-    chef_zip:new FormControl(''),
-    chef_paymode:new FormControl(''),
-    chef_experience:new FormControl(''),
+    fname: new FormControl('',[Validators.required]),
+    lname: new FormControl('',[Validators.required]),
+    emailid: new FormControl('',[Validators.required]),
+    chef_phone: new FormControl('',[Validators.required]),
+    chef_street:new FormControl('',[Validators.required]),
+    chef_city:new FormControl('',[Validators.required]),
+    chef_state:new FormControl('',[Validators.required]),
+    chef_description:new FormControl('',[Validators.required]),
+    chef_zip:new FormControl('',[Validators.required]),
+    chef_paymode:new FormControl('',[Validators.required]),
+    chef_experience:new FormControl('',[Validators.required]),
     chef_fblink:new FormControl(''),
     chef_linkdin:new FormControl(''),
-    file:new FormControl(null),
+    file:new FormControl(null,[Validators.required]),
 
 
   });
@@ -58,7 +58,11 @@ export class ChefprofilesetupComponent implements OnInit {
     }
   }
 
-  createProfile(){
+  createProfile():void|boolean{
+    if (this.profileForm.invalid) {
+      alert("Please fill out all the required fields")
+      return false;
+    }
 
     const form_data=new FormData()
 

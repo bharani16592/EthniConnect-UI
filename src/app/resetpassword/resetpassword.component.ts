@@ -43,12 +43,14 @@ export class ResetpasswordComponent implements OnInit {
     }).subscribe(
       
       {
+       
       next: resp=> this.router.navigate(['/Login']),
       error: err=>{
         console.log(err)
-        alert(err.error.message)
+        //alert(err.error.message)
       }
    });
+   alert('Your password has been updated successfully')
   }
 
 }
